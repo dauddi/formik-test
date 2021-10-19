@@ -15,7 +15,7 @@ const TaxForm = () => {
 	const [searchTerm, setSearchTerm] = useState("")
 
 	const handleSearch = () => {
-		setSearchTerm(event.currentTarget.value)
+		setSearchTerm(event.target.value)
 	}
 
 	useEffect(()=>{
