@@ -24,7 +24,7 @@ const TaxForm = () => {
 	}, [searchTerm])
 
 	return (
-		<div className="container max-w-screen sm:w-screen mx-auto text-left m-10 sm:m-0.5">
+		<div className="container md:w-10/12 lg:w-8/12 flex flex-col items-center justify-center">
 			<Formik 
 				initialValues = {{ 
 					Applicable_items: [],
@@ -42,10 +42,10 @@ const TaxForm = () => {
 				}}
 				>
 				{({ values }) => (
-					<Form>
-						<h1 className="text-xl md:text-2xl">Add Tax</h1>
+					<Form className="w-full">
+						<h1 className="text-xl md:text-2xl text-left">Add Tax</h1>
 
-						<div className="container w-full max-w-10/12 flex flex-row gap-3 my-4">
+						<div className="container w-auto flex flex-row gap-3 my-4">
 							<Field className="border-2 w-6/12 md:w-auto md:pr-20 pl-2 py-1 rounded" placeholder="name" type="text" required name="name" />
 							<div className="w-5/12 md:w-auto p-0 m-0 flex border-2 border-gray-250 rounded">
 								<Field className="focus:outline-none pl-2 w-9/12" placeholder="rate" type="text" required name="rate" />
@@ -66,9 +66,9 @@ const TaxForm = () => {
 
 						<hr className="my-5 w-100" />
 
-						<div className="container flex border-2 border-gray-250 m-2 w-screen md:w-7/12 mb-4 rounded" >
-							<SearchIcon className="w-auto mt-1" color='grey' fontSize="small" />
-							<Field onChange={handleSearch} className="border-0 focus:outline-none pr-10 pl-2 py-1" placeholder="Search items" type="text" name="search_term" />
+						<div className="flex border-2 border-gray-250 m-2 w-auto md:w-4/12 mb-4 rounded" >
+							<SearchIcon className="w-3/12 mt-1" color='grey' fontSize="small" />
+							<Field onChange={handleSearch} className="w-full border-0 focus:outline-none pr-10 pl-2 py-1" placeholder="Search items" type="text" name="search_term" />
 						</div>
 
 						{filteredData.map(group => (
