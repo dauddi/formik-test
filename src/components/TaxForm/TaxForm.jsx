@@ -24,7 +24,7 @@ const TaxForm = () => {
 	}, [searchTerm])
 
 	return (
-		<div className="container w-content-evenly max-w-screen sm:w-screen mx-auto text-left m-10 sm:m-0.5">
+		<div className="container max-w-screen sm:w-screen mx-auto text-left m-10 sm:m-0.5">
 			<Formik 
 				initialValues = {{ 
 					Applicable_items: [],
@@ -43,7 +43,7 @@ const TaxForm = () => {
 				>
 				{({ values }) => (
 					<Form>
-						<h1 className="text-lg md:text-2xl">Add Tax</h1>
+						<h1 className="text-xl md:text-2xl">Add Tax</h1>
 
 						<div className="container w-full max-w-10/12 flex flex-row gap-3 my-4">
 							<Field className="border-2 w-6/12 md:w-auto md:pr-20 pl-2 py-1 rounded" placeholder="name" type="text" required name="name" />
@@ -66,7 +66,7 @@ const TaxForm = () => {
 
 						<hr className="my-5 w-100" />
 
-						<div className="container flex border-2 border-gray-250 p-1 m-2 w-screen md:w-7/12 mb-4 rounded" >
+						<div className="container flex border-2 border-gray-250 m-2 w-screen md:w-7/12 mb-4 rounded" >
 							<SearchIcon className="w-auto mt-1" color='grey' fontSize="small" />
 							<Field onChange={handleSearch} className="border-0 focus:outline-none pr-10 pl-2 py-1" placeholder="Search items" type="text" name="search_term" />
 						</div>
@@ -79,7 +79,7 @@ const TaxForm = () => {
 							</CategoryCheckbox>
 						))}
 
-						<hr className="my-5 w-100 mt-28" />
+						<hr className="my-5 w-100 mt-14 md:mt-28" />
 
 						<div className="text-right my-4 font-normal" >
 							<ButtonUI text={ `Apply tax to ${ 0 || values.Applicable_items.length} items(s)` } />
