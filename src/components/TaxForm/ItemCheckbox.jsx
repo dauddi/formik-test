@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Field } from 'formik';
 
-const ItemCheckbox = ({ itemObject: item, checkedCategories, name, checkedState, Applicable_items }) => {
+const ItemCheckbox = ({ itemObject: item, checkedCategories, checkedState, Applicable_items }) => {
 	const [checked, setChecked] = useState(null);
 
 	useEffect(()=>{
@@ -26,10 +26,10 @@ const ItemCheckbox = ({ itemObject: item, checkedCategories, name, checkedState,
 				checked={ checked }
 				className="mr-2"
 				type="checkbox"
-				name= { name }
+				name= "Applicable_items"
 				value = { item.id }
 					/>
-			<label htmlFor={ name }> { item.name } </label>
+			<label htmlFor="Applicable_items" > { item.name } </label>
 		</div>
 	)
 }
