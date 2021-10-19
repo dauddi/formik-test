@@ -1,4 +1,5 @@
-// data filter module
+
+
 export const dataFilterFn = (response) => {
 	const available_categories = [];
 	let grouped_data = [];

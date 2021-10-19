@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'formik';
 
-const Category = ({ category, checkedState, children }) => {
+const CategoryCheckbox = ({ category, checkedState, children }) => {
 	return (
 		<React.Fragment>
 			<div className=" pl-2 py-1 container w-full bg-gray-300 rounded">
@@ -18,4 +18,4 @@ const Category = ({ category, checkedState, children }) => {
 	)
 }
 
-export default Category;
+export default CategoryCheckbox;
