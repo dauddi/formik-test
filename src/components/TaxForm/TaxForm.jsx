@@ -13,14 +13,17 @@ const grouped_data = dataFilterFn(response);
 const TaxForm = () => {
 	const [filteredData, setFilteredData] = useState([...grouped_data])
 	const [searchTerm, setSearchTerm] = useState("")
+	const [notFound, setNotFound] = useState('none');
 
 	const handleSearch = () => {
 		setSearchTerm(event.target.value)
 	}
+	
 
 	useEffect(()=>{
-		const searchResults = dataFilterFn(response.filter(item => item.name === searchTerm))
-		searchTerm ? setFilteredData([...searchResults]) : null
+		const searchResults = dataFilterFn(response.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase().trim()) ))
+		!searchResults.length ? setNotFound("") : setNotFound("none")
+		searchTerm ? setFilteredData([...searchResults]) : setFilteredData([...grouped_data])
 	}, [searchTerm])
 
 	return (
@@ -71,6 +74,10 @@ const TaxForm = () => {
 							<Field onChange={handleSearch} className="w-full border-0 focus:outline-none pr-10 pl-2 py-1" placeholder="Search items" type="text" name="search_term" />
 						</div>
 
+						<div className="text-base" style={{display: notFound}}>
+							<p className="text-red-500"> Item Not Found!! </p>
+						</div>
+
 						{filteredData.map(group => (
 							<CategoryCheckbox key={group.category} category={group.category} checkedState={values.Applied_to} className="container mt-4 gap-2 w-auto">
 								{(group.items).map(item => (
@@ -87,6 +94,7 @@ const TaxForm = () => {
 					</Form>
 					)} 
 			</Formik>
+
 		</div>
 	)
 }
