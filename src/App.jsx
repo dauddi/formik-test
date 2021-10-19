@@ -1,10 +1,9 @@
 import React from 'react'
-import './App.css'
 import TaxForm from './components/TaxForm/TaxForm'
 
 const App = () => {
   return (
-    <div className="container w-screen flex flex-row align-baseline justify-center mx-auto">
+    <div className="App container flex p-5 w-auto mx-auto">
 		<TaxForm />
     </div>
   )

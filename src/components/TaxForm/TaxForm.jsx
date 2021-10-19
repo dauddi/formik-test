@@ -24,7 +24,7 @@ const TaxForm = () => {
 	}, [searchTerm])
 
 	return (
-		<div className="container flex flex-row justify-center align-baseline w-10/12 mx-auto text-left m-10">
+		<div className="container w-content-evenly max-w-screen sm:w-screen mx-auto text-left m-10 sm:m-0.5">
 			<Formik 
 				initialValues = {{ 
 					Applicable_items: [],
@@ -43,13 +43,13 @@ const TaxForm = () => {
 				>
 				{({ values }) => (
 					<Form>
-						<h1 className="text-2xl">Add Tax</h1>
+						<h1 className="text-lg md:text-2xl">Add Tax</h1>
 
-						<div className="container w-full flex flex-row gap-3 my-4">
-							<Field className="border-2 pr-20 pl-2 py-1 rounded" type="text" required name="name" />
-							<div className="container h-auto flex align-baseline justify-center border-2 rounded">
-								<Field className="focus:outline-none pl-2 " type="text" required name="rate" />
-								<Icon className="w-auto h-auto" fontSize="small"> % </Icon>
+						<div className="container w-full max-w-10/12 flex flex-row gap-3 my-4">
+							<Field className="border-2 w-6/12 md:w-auto md:pr-20 pl-2 py-1 rounded" placeholder="name" type="text" required name="name" />
+							<div className="w-5/12 md:w-auto p-0 m-0 flex border-2 border-gray-250 rounded">
+								<Field className="focus:outline-none pl-2 w-9/12" placeholder="rate" type="text" required name="rate" />
+								<Icon className="w-3/12 p-0 m-0" fontSize="small">%</Icon>
 							</div>
 						</div>
 
@@ -66,13 +66,13 @@ const TaxForm = () => {
 
 						<hr className="my-5 w-100" />
 
-						<div className="border-2 border-gray-250 w-7/12 mb-4 rounded" >
-							<SearchIcon className="w-auto" color='grey' fontSize="small" />
+						<div className="container flex border-2 border-gray-250 p-1 m-2 w-screen md:w-7/12 mb-4 rounded" >
+							<SearchIcon className="w-auto mt-1" color='grey' fontSize="small" />
 							<Field onChange={handleSearch} className="border-0 focus:outline-none pr-10 pl-2 py-1" placeholder="Search items" type="text" name="search_term" />
 						</div>
 
 						{filteredData.map(group => (
-							<CategoryCheckbox key={group.category} category={group.category} checkedState={values.Applied_to} className="container mt-4 gap-2 w-full">
+							<CategoryCheckbox key={group.category} category={group.category} checkedState={values.Applied_to} className="container mt-4 gap-2 w-auto">
 								{(group.items).map(item => (
 									<ItemCheckbox key={item.id} Applicable_items={values.Applicable_items} checkedCategories={values.checkedCategories} itemObject={item} checkedState={values.Applied_to} name="Applicable_items" />
 								))}
